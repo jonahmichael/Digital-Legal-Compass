@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Digital Legal Compass</title>
+</head>
+<body>
+  <h1>The Digital Legal Compass</h1>
+  <p>Upload your legal document to get a clear, simple analysis.</p>
+  <input type="file" id="docUploader" />
+  <button id="submitBtn">Analyze Document</button>
+  <hr>
+  <h2>Your Analysis:</h2>
+  <div id="results">Waiting for document...</div>
+  <script>
+        const uploader = document.getElementById('docUploader');
+    const submitBtn = document.getElementById('submitBtn');
+    const resultsDiv = document.getElementById('results');
+
+    submitBtn.addEventListener('click', () => {
+      const file = uploader.files[0];
+      if (!file) {
+        alert("Please select a file first!");
+        return;
+      }
+
+      resultsDiv.innerText = "Analyzing... this may take a moment.";
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      // PASTE YOUR FUNCTION URL HERE
+      const functionUrl = 'https://analyze-legal-document-970352252912.us-central1.run.app/';
+
+      fetch(functionUrl, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        resultsDiv.innerText = data.analysis; // Assuming your function returns { "analysis": "..." }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        resultsDiv.innerText = "An error occurred. Please try again.";
+      });
+    });
+  </script>
+</body>
+</html>
