@@ -67,9 +67,15 @@ pip install -r requirements.txt
 
 3. **Set up environment variables:**
 
+
 Create a `.env` file in the backend directory:
 ```env
 GOOGLE_API_KEY=your_google_api_key_here
+
+```bash
+cp .env.example .env
+# Edit .env and add your Google API Key
+>>>>>>> 45e798b81affe9dfb25ee9a6972ccb9e8e65ebe0
 ```
 
 **Getting Your API Key:**
