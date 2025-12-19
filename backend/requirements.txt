@@ -1,0 +1,24 @@
+# FastAPI and web framework
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-multipart==0.0.20
+
+# LangChain and AI
+langchain-core>=1.1.0
+langchain-google-genai>=4.0.0
+
+# Vector store
+chromadb==0.5.23
+
+# Document processing
+pypdf==5.1.0
+python-dotenv==1.0.1
+
+# Dependencies
+pydantic>=2.7.4
+typing-extensions>=4.15.0
+pyyaml>=6.0.0
+
+# Optional: Additional document loaders
+# unstructured==0.16.14
+# python-docx==1.1.2
